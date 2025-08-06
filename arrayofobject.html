@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        let a = [];
+        for(let i=1;i<=2;i++){
+            let pname = prompt(i+")Enter the product Name");
+            let pprice = prompt(i+")Enter the product price");
+            let pstorege = prompt(i+")Enter the Storage");
+
+            let product = {
+                productName:pname,
+                productPrice:pprice,
+                productstorage:pstorege
+            };
+
+            a.push(product);
+        }
+        // console.log(a);
+       
+
+        //convert to string
+        let ots = JSON.stringify(a)
+        // console.log(ots);
+
+        //Stored in local Storage
+        localStorage.setItem("First",ots)
+
+
+        //get the element from from localStorage
+        let otsget = localStorage.getItem("First")
+        let b = JSON.parse(ots)
+        console.log(b);
+
+        //print the element in document page
+        b.forEach(element => {
+            document.writeln( "<p>" + "productName :" +element.productName +  "<p>")
+            document.writeln( "<p>" + "productPrice :" +element.productPrice +  "<p>")
+            document.writeln( "<p>" + "productstorage :" +element.productstorage +  "<p>")
+        });
+
+
+        
+
+
+       
+
+
+    </script>
+
+</body>
+</html>
